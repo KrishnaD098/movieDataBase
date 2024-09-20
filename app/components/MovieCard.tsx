@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface MovieCardProps {
   title: string;
   overview: string;
@@ -11,11 +13,18 @@ const MovieCard = ({ title, overview, posterPath }: MovieCardProps) => {
 
   return (
     <div className="bg-white rounded shadow p-4">
-      <img className="w-full h-64 object-cover rounded mb-4" src={imageUrl} alt={title} />
-      <h2 className="text-2xl font-bold mb-2 text-black">{title}</h2>
-      <p className="text-sm text-gray-700">{overview.substring(0, 150)}</p>
+      <Image 
+        className="w-full h-64 rounded mb-4" 
+        src={imageUrl} 
+        alt={title} 
+        width={500}
+        height={750} 
+        priority 
+      />
+      <h2 className="text-2xl font-bold mb-2">{title}</h2>
+      <p className="text-sm text-gray-500">{overview.substring(0, 150)}</p>
     </div>
   );
-};
+}
 
 export default MovieCard;
