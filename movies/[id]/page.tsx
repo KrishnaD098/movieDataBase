@@ -1,24 +1,34 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 interface Movie {
   id: string;
   title: string;
-  description: string;
+  overview: string;
   poster_path: string;
   release_date: string;
   vote_average: number;
 }
 
-interface MovieDetailsProps {
-  movie: Movie;
-}
-
-const MovieDetails = ({ movie }: MovieDetailsProps) => {
+export default function MovieDetails() {
   const router = useRouter();
+  const { id } = router.query;
+  const [movie, setMovie] = useState<Movie | null>(null); 
 
-  if (router.isFallback) {
-    return <div style={{ color: 'white' }}>Loading...</div>;
+  useEffect(() => {
+    if (id) {
+      const fetchMovieDetails = async () => {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e6a18dc27992aa9e445962d6156a6057`);
+        const data = await res.json();
+        setMovie(data);
+      };
+
+      fetchMovieDetails();
+    }
+  }, [id]);
+
+  if (!movie) {
+    return <div style={{ color: 'white' }}>Loading...</div>; // Loading state
   }
 
   return (
@@ -40,7 +50,7 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
           width: '300px', 
           borderRadius: '8px', 
           marginBottom: '20px',
-          boxShadow: 'none' // Remove any shadow to eliminate the white border
+          boxShadow: 'none'
         }}
       />
       <p style={{ fontSize: '1.2rem', marginBottom: '10px' }}>
@@ -50,37 +60,8 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
         <strong>Rating:</strong> {movie.vote_average} / 10
       </p>
       <p style={{ fontSize: '1.1rem', maxWidth: '800px', textAlign: 'center' }}>
-        {movie.description}
+        {movie.overview}
       </p>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${params?.id}?api_key=e6a18dc27992aa9e445962d6156a6057`);
-  const movie = await res.json();
-
-  return {
-    props: {
-      movie: {
-        ...movie,
-        description: movie.overview,
-      },
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=e6a18dc27992aa9e445962d6156a6057`);
-  const movies = await res.json();
-
-  const paths = movies.results.map((movie: Movie) => ({
-    params: { id: movie.id.toString() },
-  }));
-
-  return { paths, fallback: true };
-};
-
-export default MovieDetails;
+}

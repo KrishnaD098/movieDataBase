@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface MovieCardProps {
-  id: number;  
+  id: number;
   title: string;
   overview: string;
   posterPath: string;
@@ -13,7 +13,7 @@ const MovieCard = ({ id, title, overview, posterPath }: MovieCardProps) => {
     : '/no-image-available.png';
 
   return (
-    <Link href={`/movie/${id}`} passHref>
+    <Link href={`/movies/${id}`} passHref>
       <div className="bg-white rounded shadow p-4 cursor-pointer">
         <img
           className="w-full h-64 rounded mb-4"
