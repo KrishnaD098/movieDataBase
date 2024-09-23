@@ -1,5 +1,7 @@
-import { useRouter } from 'next/router';
+"use client"; // Make this a client component
+
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'; 
 
 interface Movie {
   id: string;
@@ -10,25 +12,22 @@ interface Movie {
   vote_average: number;
 }
 
-export default function MovieDetails() {
-  const router = useRouter();
-  const { id } = router.query;
-  const [movie, setMovie] = useState<Movie | null>(null); 
+export default function MovieDetails({ params }: { params: { id: string } }) {
+  const { id } = params; // Access id from params directly
+  const [movie, setMovie] = useState<Movie | null>(null);
 
   useEffect(() => {
-    if (id) {
-      const fetchMovieDetails = async () => {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e6a18dc27992aa9e445962d6156a6057`);
-        const data = await res.json();
-        setMovie(data);
-      };
+    const fetchMovieDetails = async () => {
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e6a18dc27992aa9e445962d6156a6057`);
+      const data = await res.json();
+      setMovie(data);
+    };
 
-      fetchMovieDetails();
-    }
+    fetchMovieDetails();
   }, [id]);
 
   if (!movie) {
-    return <div style={{ color: 'white' }}>Loading...</div>; // Loading state
+    return <div style={{ color: 'white' }}>Loading...</div>;
   }
 
   return (
@@ -49,8 +48,7 @@ export default function MovieDetails() {
         style={{ 
           width: '300px', 
           borderRadius: '8px', 
-          marginBottom: '20px',
-          boxShadow: 'none'
+          marginBottom: '20px'
         }}
       />
       <p style={{ fontSize: '1.2rem', marginBottom: '10px' }}>
