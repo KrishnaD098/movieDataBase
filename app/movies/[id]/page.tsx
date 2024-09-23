@@ -1,7 +1,7 @@
 "use client"; // Make this a client component
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; 
+// import { useRouter } from 'next/navigation'; 
 
 interface Movie {
   id: string;
