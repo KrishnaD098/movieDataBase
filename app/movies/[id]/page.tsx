@@ -1,7 +1,6 @@
 "use client"; // Make this a client component
 
 import { useEffect, useState } from 'react';
-// import { useRouter } from 'next/navigation'; 
 
 interface Movie {
   id: string;
@@ -26,8 +25,9 @@ export default function MovieDetails({ params }: { params: { id: string } }) {
     fetchMovieDetails();
   }, [id]);
 
+  // Remove the loading option entirely and ensure movie details are displayed
   if (!movie) {
-    return <div style={{ color: 'white' }}>Loading...</div>;
+    return null; // Simply return nothing until the data is fetched
   }
 
   return (
