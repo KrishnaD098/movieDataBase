@@ -43,7 +43,7 @@ export default function MovieDetails({ params }: { params: { id: string } }) {
         <meta property="og:title" content={movie.title} />
         <meta property="og:description" content={movie.overview} />
         <meta property="og:image" content={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-        <meta property="og:url" content={`https://yourwebsite.com/movies/${movie.id}`} />
+        <meta property="og:url" content={`https://movie-data-base-go5q-gamma.vercel.app/${movie.id}`} />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card tags for Twitter sharing */}

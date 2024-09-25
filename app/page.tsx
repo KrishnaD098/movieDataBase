@@ -27,7 +27,7 @@ export default function Home() {
           content="Explore a vast collection of movies with detailed information and ratings."
         />
         <meta property="og:image" content="/path/to/image.jpg" />
-        <meta property="og:url" content="https://www.your-movie-database.com" />
+        <meta property="og:url" content="https://movie-data-base-go5q-gamma.vercel.app/" />
 
         {/* Twitter Card: Social Sharing */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +39,7 @@ export default function Home() {
         <meta name="twitter:image" content="/path/to/image.jpg" />
 
         {/* Canonical URL: To prevent duplicate content issues */}
-        <link rel="canonical" href="https://www.your-movie-database.com" />
+        <link rel="canonical" href="https://movie-data-base-go5q-gamma.vercel.app/" />
 
         {/* Structured Data (JSON-LD): Helps Google understand your site */}
         <script
@@ -48,11 +48,11 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://www.your-movie-database.com",
+              "url": "https://movie-data-base-go5q-gamma.vercel.app/",
               "name": "Movie Database",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.your-movie-database.com/search?q={search_term_string}",
+                "target": "https://movie-data-base-go5q-gamma.vercel.app/?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),
