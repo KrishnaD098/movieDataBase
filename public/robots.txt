@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://movie-data-base-go5q-gamma.vercel.app/sitemap.xml
+Sitemap: https://movie-data-base-go5q-gamma.vercel.app/sitemap-0.xml
