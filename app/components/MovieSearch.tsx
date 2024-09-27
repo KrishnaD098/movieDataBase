@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import { searchMovies } from "../services/movie";
 import MovieCard from "./MovieCard";
 import SearchBar from "./SearchBar";
@@ -14,14 +15,14 @@ interface Movie {
 
 const MovieSearch = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [searchHistory, setsearchHistory] = useState<string[]>([]);
+  const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [cachedMovies, setCachedMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const storedHistory = localStorage.getItem("searchHistory");
     const cachedData = sessionStorage.getItem("cachedMovies");
 
-    if (storedHistory) setsearchHistory(JSON.parse(storedHistory));
+    if (storedHistory) setSearchHistory(JSON.parse(storedHistory));
     if (cachedData) setCachedMovies(JSON.parse(cachedData)); // Restore cached data
   }, []);
 
@@ -36,13 +37,17 @@ const MovieSearch = () => {
       ),
     ].slice(0, 10);
 
-    setsearchHistory(updatedHistory);
+    setSearchHistory(updatedHistory);
     localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
     sessionStorage.setItem("cachedMovies", JSON.stringify(results)); // Cache results
   };
 
   return (
     <div className="flex flex-col items-center">
+      <Head>
+        <title>Movie Search Database</title>
+        <meta name="description" content="Find and search for movies easily." />
+      </Head>
       <SearchBar onSearch={handleSearch} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8 px-4">
         {(movies.length ? movies : cachedMovies).map((movie) => (

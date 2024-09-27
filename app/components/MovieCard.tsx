@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Import the Image component from Next.js
+import Image from 'next/image'; 
 
 interface MovieCardProps {
   id: number;
@@ -20,10 +20,10 @@ const MovieCard = ({ id, title, overview, posterPath }: MovieCardProps) => {
           <Image
             className="rounded"
             src={imageUrl}
-            alt={title}
-            layout="fill" // Ensure the image takes up the full width and height of its container
-            objectFit="cover" // Keeps the aspect ratio and covers the container
-            priority={true} // Optional: prioritize loading this image for better LCP
+            alt={`${title} poster`} // Updated alt attribute
+            layout="fill" 
+            objectFit="cover" 
+            priority={true} 
           />
         </div>
         <h2 className="text-2xl font-bold mb-2">{title}</h2>

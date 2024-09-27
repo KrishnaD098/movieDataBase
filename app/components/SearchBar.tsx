@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
+import Head from "next/head";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -72,6 +73,9 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   return (
     <div className="relative w-screen max-w-3xl">
       <form onSubmit={handleSubmit} className="flex items-center w-full">
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
         <input
           type="text"
           className="border-gray-300 rounded-l py-2 px-4 w-full focus:outline-none focus:border-blue-500"
