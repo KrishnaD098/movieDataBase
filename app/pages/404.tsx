@@ -11,7 +11,7 @@ const Custom404 = () => (
       <h1 className="text-4xl font-bold">Page Not Found</h1>
       <p className="text-lg my-4">Sorry, the page you&apos;re looking for doesn&apos;t exist.</p>
       <Link href="/">
-        <a className="text-blue-600">Go back to Homepage</a>
+        <a className="text-blue-599">Go back to Homepage</a>
       </Link>
     </div>
   </>
