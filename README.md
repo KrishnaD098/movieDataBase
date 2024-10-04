@@ -67,7 +67,7 @@ To add Next-Blog to your project, follow these simple steps:
    npm run dev
    ```
 
-   **You can access the blogging dashboard at**
+   You can access the blogging dashboard at
 
    ```shell
    http://localhost:3000/api/next-blog/dashboard/blogs
