@@ -39,7 +39,7 @@ To add Next-Blog to your project, follow these simple steps:
 
 4. **Update Your Route Configuration**
 
-In your route.ts, integrate Next-Blog as shown:
+   In your route.ts, integrate Next-Blog as shown:
 
    ```typescript
    import nextBlog from "@supergrowthai/next-blog"
@@ -55,16 +55,16 @@ In your route.ts, integrate Next-Blog as shown:
 
 5. **Create a DataPath Folder**
 
-Create a dataPath folder in the root of your project. The required files authors.json, blogs.json, categories.json, and tags.json will be automatically created when the project runs.
+   Create a dataPath folder in the root of your project. The required files authors.json, blogs.json, categories.json, and tags.json will be automatically created when the project runs.
 
 6. **Run the Development Server**
 
-Now, run the project using following commands:
+   Now, run the project using following commands:
 
 
-  **You can access the blogging dashboard**
+   **You can access the blogging dashboard**
 
- http://localhost:3000/api/next-blog/dashboard/blogs
+   http://localhost:3000/api/next-blog/dashboard/blogs
  
 
 
