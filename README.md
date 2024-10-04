@@ -34,7 +34,7 @@ To add Next-Blog to your project, follow these simple steps:
    ```shell
    npm link @supergrowthai/next-blog
    ```
-   
+
 
 3. Create a new route at apps/api/sgai-blog/[...page]/route.ts
 
@@ -54,11 +54,14 @@ To add Next-Blog to your project, follow these simple steps:
    export { GET, POST };
    ```
 
-   - **After author creation** : Once your author is created successfully, ```remove byPassSecurity: true``` for a production-ready setup:
+   -**After author creation** : Once your author is created successfully, remove ```byPassSecurity: true``` for a production-ready setup:
 
    ```shell
    const { GET, POST } = nextBlog({ db: dbProvider });
    ```
+
+
+
 
 
 5. **Create a DataPath Folder**
@@ -68,13 +71,13 @@ To add Next-Blog to your project, follow these simple steps:
 6. **Run the Development Server**
 
    Now, run the project using following commands
-
+   
    ```shell
    npm run dev
    ```
 
    You can access the blogging dashboard at
-
+   
    ```shell
    http://localhost:3000/api/next-blog/dashboard/blogs
    ```
