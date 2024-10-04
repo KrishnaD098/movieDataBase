@@ -1,6 +1,8 @@
 import Head from "next/head";
 import MovieSearch from "./components/MovieSearch";
 
+
+
 export default function Home() {
   return (
     <main className="bg-black min-h-screen">
