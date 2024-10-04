@@ -41,17 +41,23 @@ To add Next-Blog to your project, follow these simple steps:
 
 4. **Update Your Route Configuration**
 
-   In your route.ts, integrate Next-Blog as shown:
+   In your route.ts, integrate Next-Blog. Initially, bypass security for local development, and later, remove it for production environments:
 
    ```typescript
-   import nextBlog from "@supergrowthai/next-blog"
+   import nextBlog from "@supergrowthai/next-blog";
+   import FileDBProvider from "@supergrowthai/next-blog/adapters/FileDBAdapter";
 
-   //To use a database use the builtin MongoDBProvider or create a new Provider and create a pr?:D
-   //This provider only works locally.    
-   const dbProvider = async () => new FileDBProvider(dataPath) 
-   const {GET, POST} = nextBlog({db: dbProvider})
+   // For the first run in local development:
+   const dbProvider = async () => new FileDBProvider("dataPath/");
+   const { GET, POST } = nextBlog({ db: dbProvider, byPassSecurity: true });
 
    export { GET, POST };
+   ```
+
+   - **After author creation** : Once your author is created successfully, ```remove byPassSecurity: true``` for a production-ready setup:
+
+   ```shell
+   const { GET, POST } = nextBlog({ db: dbProvider });
    ```
 
 
