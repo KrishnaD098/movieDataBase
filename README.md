@@ -54,7 +54,7 @@ To add Next-Blog to your project, follow these simple steps:
    export { GET, POST };
    ```
 
-   -**After author creation** : Once your author is created successfully, remove ```byPassSecurity: true``` for a production-ready setup:
+   **After author creation** : Once your author is created successfully, remove ```byPassSecurity: true``` for a production-ready setup:
 
    ```shell
    const { GET, POST } = nextBlog({ db: dbProvider });
