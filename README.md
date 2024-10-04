@@ -34,8 +34,10 @@ To add Next-Blog to your project, follow these simple steps:
    ```shell
    npm link @supergrowthai/next-blog
    ```
+   
 
 3. Create a new route at apps/api/sgai-blog/[...page]/route.ts
+
 
 4. **Update Your Route Configuration**
 
@@ -67,8 +69,9 @@ To add Next-Blog to your project, follow these simple steps:
 
    **You can access the blogging dashboard**
 
+   ```shell
    http://localhost:3000/api/next-blog/dashboard/blogs
- 
+   ```
 
 
 ### Roadmap
