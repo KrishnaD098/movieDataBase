@@ -61,6 +61,9 @@ To add Next-Blog to your project, follow these simple steps:
 
    Now, run the project using following commands:
 
+   ```shell
+   npm run dev
+   ```
 
    **You can access the blogging dashboard**
 
